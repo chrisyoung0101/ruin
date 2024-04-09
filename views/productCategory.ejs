@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/_head.ejs') %>
+  <body>
+    <%- include('partials/_header.ejs') %>
+    <main role="main" class="container mt-4">
+      <h2 class="center-align">Product Category</h2>
+      <div class="row">
+        <% products.forEach(function(product) { %>
+          <a href="/products/detail/<%= product._id %>" class="col s12 m4">
+            <div class="card">
+              <div class="card-image">
+                <% if(product.images && product.images.length > 0) { %>
+                  <img src="<%= product.images[0] %>" alt="<%= product.productName %>" onerror="this.onerror=null;this.src='/images/placeholder.png';">
+                <% } else { %>
+                  <img src="/images/placeholder.png" alt="Placeholder Image">
+                <% } %>
+              </div>
+              <div class="card-content">
+                <span class="card-title"><%= product.productName %></span>
+                <p><%= product.description %></p>
+                <p>Price: $<%= product.price %></p>
+                <p>Availability: <%= product.availability ? 'Available' : 'Sold Out' %></p>
+              </div>
+              <div class="card-action">
+                <% if(product.availability) { %>
+                  <a href="/products/detail/<%= product._id %>" class="btn waves-effect waves-light">View Details</a>
+                <% } else { %>
+                  <button class="btn disabled">Sold Out</button>
+                <% } %>
+              </div>
+            </div>
+          </a>
+        <% }); %>
+      </div>
+    </main>
+  </body>
+<%- include('partials/_footer.ejs') %>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log('Product category page loaded successfully.');
+  });
+</script>
+</html>

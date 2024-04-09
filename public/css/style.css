@@ -1,0 +1,36 @@
+/* Custom styles for visibility, footer positioning, and navbar containment */
+
+/* Ensure 'Home' and 'Logout' buttons are visible and properly contained within the navbar */
+.navbar-nav .nav-link {
+  color: #fff; /* Adjust color to ensure visibility */
+}
+
+/* Adjust navbar to use flexbox for better alignment and containment */
+nav {
+  display: flex;
+  justify-content: space-between; /* Distribute space between elements */
+  align-items: center; /* Vertically align elements in the middle */
+  position: relative; /* Set position to relative to contain absolutely positioned child elements */
+}
+
+/* Footer should stick to the bottom using Flexbox */
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content-wrap {
+  flex: 1;
+}
+
+.footer {
+  background: #f8f9fa; /* Light background for the footer */
+  color: #6c757d; /* Dark text for contrast */
+  text-align: center;
+  padding: 10px 0;
+}

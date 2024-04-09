@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/_head.ejs') %>
+  <body>
+    <%- include('partials/_header.ejs') %>
+    <main role="main" class="container mt-4">
+      <h2 class="center-align">Administration Panel</h2>
+      <section>
+        <h3>Add New Product</h3>
+        <form action="/admin/products" method="POST">
+          <div class="input-field">
+            <input type="text" name="productName" id="productName" required>
+            <label for="productName">Product Name</label>
+          </div>
+          <div class="input-field">
+            <textarea name="description" id="description" class="materialize-textarea" required></textarea>
+            <label for="description">Description</label>
+          </div>
+          <div class="input-field">
+            <input type="number" name="price" id="price" step="0.01" required>
+            <label for="price">Price</label>
+          </div>
+          <div class="input-field">
+            <select name="category" id="category" required>
+              <option value="" disabled selected>Choose your option</option>
+              <option value="Sterling Silver Jewelry">Sterling Silver Jewelry</option>
+              <option value="Sculpture">Sculpture</option>
+              <option value="Vessel">Vessel</option>
+            </select>
+            <label for="category">Category</label>
+          </div>
+          <div class="input-field">
+            <input type="text" name="images" id="images" required>
+            <label for="images">Image URLs (comma-separated)</label>
+          </div>
+          <div class="input-field">
+            <label>
+              <input type="checkbox" name="availability" id="availability" />
+              <span>Available</span>
+            </label>
+          </div>
+          <button type="submit" class="btn waves-effect waves-light">Add Product</button>
+        </form>
+      </section>
+      <section>
+        <h3>Existing Categories</h3>
+        <ul>
+          <li>Sterling Silver Jewelry</li>
+          <li>Sculpture</li>
+          <li>Vessel</li>
+        </ul>
+      </section>
+    </main>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('select');
+        var instances = M.FormSelect.init(elems);
+      });
+    </script>
+  </body>
+<%- include('partials/_footer.ejs') %>
+</html>

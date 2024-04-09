@@ -1,0 +1,23 @@
+/* Layout CSS to ensure footer sticks to the bottom and main content is flexibly displayed */
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content-wrap {
+  flex: 1;
+}
+
+.footer {
+  background: #f8f9fa; /* Light background for the footer */
+  color: #6c757d; /* Dark text for contrast */
+  text-align: center;
+  padding: 10px 0;
+}

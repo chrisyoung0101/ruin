@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/_head.ejs') %>
+  <body>
+    <%- include('partials/_header.ejs') %>
+    <main role="main" class="container mt-4">
+      <div class="product-detail">
+        <h2><%= product.productName %></h2>
+        <p><%= product.description %></p>
+        <div class="product-images">
+          <% product.images.forEach(function(image) { %>
+            <img src="<%= image %>" alt="<%= product.productName %>" style="max-width: 100%; height: auto;" onerror="this.src='/images/fallback.png';"> <!-- INPUT_REQUIRED {Provide a valid fallback image URL} -->
+          <% }); %>
+        </div>
+        <p>Price: $<%= product.price %></p>
+        <p id="availability">Availability: <%= product.availability ? 'Available' : 'Sold Out' %></p>
+        <% if(product.availability) { %>
+          <button id="purchaseButton" class="btn waves-effect waves-light">Purchase</button>
+        <% } %>
+      </div>
+    </main>
+    <script src="/js/productDetail.js"></script>
+  </body>
+<%- include('partials/_footer.ejs') %>
+</html>
