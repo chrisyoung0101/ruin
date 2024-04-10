@@ -13,7 +13,7 @@
                 <% if(product.images && product.images.length > 0) { %>
                   <img src="<%= product.images[0] %>" alt="<%= product.productName %>" onerror="this.onerror=null;this.src='/images/placeholder.png';">
                 <% } else { %>
-                  <img src="/images/placeholder.png" alt="Placeholder Image">
+                  <img src="/images/placeholder.png" alt="Placeholder Image" onerror="this.onerror=null;this.src='/images/fallback.png';">
                 <% } %>
               </div>
               <div class="card-content">

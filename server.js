@@ -9,6 +9,7 @@ const productRoutes = require('./routes/productRoutes');
 const cartRoutes = require('./routes/cartRoutes');
 const adminRoutes = require('./routes/adminRoutes'); // Added admin routes
 const checkDbConnection = require('./routes/middleware/dbMiddleware'); // Importing the database connection check middleware
+const imageMiddleware = require('./routes/middleware/imageMiddleware'); // Importing the image middleware
 
 if (!process.env.DATABASE_URL || !process.env.SESSION_SECRET) {
   console.error("Error: config environment variables not set. Please create/edit .env configuration file.");
@@ -27,6 +28,9 @@ app.set("view engine", "ejs");
 
 // Serve static files
 app.use(express.static("public"));
+
+// Middleware to make images available to EJS templates
+app.use(imageMiddleware);
 
 // Database connection
 mongoose
